@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
@@ -14,6 +14,14 @@ import { MetaData } from '../components/common/meta'
 const Tag = ({ data, location, pageContext }) => {
     const tag = data.ghostTag
     const posts = data.allGhostPost.edges
+
+    useEffect(() => {
+        const main = document.querySelector(`.site-main`)
+        main.style.background = `#f8f8f8`
+        return () => {
+            main.style.background = ``
+        }
+    }, [])
 
     return (
         <>
@@ -63,7 +71,7 @@ export const pageQuery = graphql`
             ...GhostTagFields
         }
         allGhostPost(
-            sort: { order: DESC, fields: [published_at] },
+            sort: { order: DESC, fields: [featured, published_at] },
             filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
             limit: $limit,
             skip: $skip

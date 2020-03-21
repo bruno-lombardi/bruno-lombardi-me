@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
+import Prism from 'prismjs'
+import '../styles/dracula.css'
 
 /**
 * Single post view (/:slug)
@@ -14,6 +16,10 @@ import { MetaData } from '../components/common/meta'
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
+
+    useEffect(() => {
+        Prism.highlightAll()
+    }, [])
 
     return (
         <>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
@@ -15,6 +15,14 @@ import { MetaData } from '../components/common/meta'
 */
 const Index = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
+
+    useEffect(() => {
+        const main = document.querySelector(`.site-main`)
+        main.style.background = `#f8f8f8`
+        return () => {
+            main.style.background = ``
+        }
+    }, [])
 
     return (
         <>
@@ -51,7 +59,7 @@ export default Index
 export const pageQuery = graphql`
   query GhostPostQuery($limit: Int!, $skip: Int!) {
     allGhostPost(
-        sort: { order: DESC, fields: [published_at] },
+        sort: { order: DESC, fields: [featured, published_at] },
         limit: $limit,
         skip: $skip
     ) {
