@@ -8,17 +8,30 @@ import { MetaData } from '../components/common/meta'
 import Prism from 'prismjs'
 import '../styles/dracula.css'
 
+import typescript from 'prismjs/components/prism-typescript'
+import bash from 'prismjs/components/prism-bash'
+import json from 'prismjs/components/prism-json'
+
+Prism.languages.extend(`typescript`, typescript)
+Prism.languages.extend(`bash`, bash)
+Prism.languages.extend(`sh`, bash)
+Prism.languages.extend(`json`, json)
+
+console.log(Prism.languages)
+
 /**
 * Single post view (/:slug)
 *
 * This file renders a single post and loads all the content.
 *
 */
+
 const Post = ({ data, location }) => {
     const post = data.ghostPost
+    console.log(post.html)
 
     useEffect(() => {
-        Prism.highlightAll()
+        setTimeout(() => Prism.highlightAll(), 0)
     }, [])
 
     return (

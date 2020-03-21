@@ -9,6 +9,8 @@
  * via ids/classnames etc.
  *
  */
+require('typeface-source-sans-pro')
+require('typeface-alegreya')
 var trustAllScripts = function () {
     var scriptNodes = document.querySelectorAll('.load-external-scripts script');
 

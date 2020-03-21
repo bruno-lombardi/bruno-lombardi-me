@@ -29,8 +29,8 @@ what's here to work the way you'd like it to.
     --color-bg: #f5f5f5;
 
     /* Fonts */
-    --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    --font-serif: Georgia, Times, serif;
+    --font-sans-serif: "Source Sans Pro", "Helvetica Neue", sans-serif;
+    --font-serif: "Alegreya", serif;
     --font-mono: Menlo, Courier, monospace;
     --font-light: 100;
     --font-normal: 400;
@@ -295,6 +295,13 @@ th {
     padding: 0;
 }
 
+figure figcaption {
+    color: #ababab;
+    font-family: var(--font-sans-serif);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
 /* Defaults
 /* ---------------------------------------------------------- */
 
@@ -539,7 +546,20 @@ h6 {
 .content-body {
     display: flex;
     flex-direction: column;
-    font-family: var(--font-serif);
+    font-family: var(--font-sans-serif);
+}
+
+.content-body code {
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(40, 42, 54, .8);
+    border-radius: 3px;
+    color: #f8f8f8;
+}
+
+.content-body code[class*="language-"] {
+    font-size: 100%;
 }
 
 .post-full-content {
@@ -561,7 +581,7 @@ h6 {
 .content-body h4,
 .content-body h5,
 .content-body h6 {
-    font-family: var(--font-sans-serif);
+    font-family: var(--font-serif);
 }
 
 .content-body h1 {
