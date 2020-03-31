@@ -29,6 +29,7 @@ try {
 * Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/
 *
 */
+
 module.exports = {
     siteMetadata: {
         siteUrl: config.siteUrl,
